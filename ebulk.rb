@@ -2,20 +2,14 @@ class Ebulk < Formula
   desc "Ingestion/download of large dataset into Wendelin-IA-Telecom platform"
   homepage "https://lab.nexedi.com/rporchetto/ebulk"
   url "https://lab.nexedi.com/rporchetto/ebulk/repository/archive.tar.gz?ref=v1.0.0"
-  sha256 "1c2c5ce4b6f708b518e505fa1f03744d7e195d790f939c79812323d57fa9a368"
+  sha256 "0f04ba5e18ac6008d4376c4a14ce319ed3926afa1b22cc641389dad2442f84bf"
 
   bottle :unneeded
 
-#  depends_on :java => "1.8"
-
   def install
-	bin.install "ebulk"
+	libexec.install "ebulk"
+	libexec.install "ebulk-data"
+	bin.write_exec_script (libexec/"ebulk")
   end
 
-#  test do
-#    system bin/"embulk", "example", "./try1"
-#    system bin/"embulk", "guess", "./try1/seed.yml", "-o", "config.yml"
-#    system bin/"embulk", "preview", "config.yml"
-#    system bin/"embulk", "run", "config.yml"
-#  end
 end
